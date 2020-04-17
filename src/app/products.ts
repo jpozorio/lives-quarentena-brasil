@@ -98,7 +98,5 @@ export const products = [
 ];
 
 /*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
+Coloque sempre 2h a mais no date para que o evento fique na lista até 2h após o início para que os atrasados saibam o que está rolando
 */
