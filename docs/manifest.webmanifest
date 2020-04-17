@@ -1,11 +1,11 @@
 {
-  "name": "lives-brasil",
-  "short_name": "lives-brasil",
+  "name": "Lives Brasil contra o covid-19",
+  "short_name": "Lives Brasil",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "scope": "./",
-  "start_url": "./",
+  "scope": "https://jpozorio.github.io/lives-quarentena-brasil/",
+  "start_url": "https://jpozorio.github.io/lives-quarentena-brasil/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
