@@ -382,7 +382,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /media/WORK/lives-brasil/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/jpozorio/Downloads/odpeknvxnlq.angular/src/main.ts */"./src/main.ts");
 
 
 /***/ })
