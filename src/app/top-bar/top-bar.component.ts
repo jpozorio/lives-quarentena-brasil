@@ -1,23 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-interface Style {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
-  styles: Style[] = [
-    {value: 'sertanejo', viewValue: 'Sertanejo'},
-    {value: 'pop', viewValue: 'Pop'},
-    {value: 'rock', viewValue: 'Rock'},
-    {value: 'gospel', viewValue: 'Gospel'}
-  ];
-
   constructor() { }
 
   ngOnInit() {

@@ -9,6 +9,9 @@ import {RouterModule} from "@angular/router";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
+import {MatSelectModule} from "@angular/material/select";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -16,15 +19,18 @@ import {environment} from '../environments/environment';
     TopBarComponent,
     ProductListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot([
-      {path: '', component: ProductListComponent},
-    ]),
-    BrowserAnimationsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule.forRoot([
+            {path: '', component: ProductListComponent},
+        ]),
+        BrowserAnimationsModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+        MatSelectModule,
+        MatFormFieldModule,
+        MatInputModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
