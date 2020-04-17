@@ -260,6 +260,7 @@ function ProductListComponent_div_5_Template(rf, ctx) { if (rf & 1) {
 class ProductListComponent {
     constructor() {
         this.styles = [
+            { value: '', viewValue: 'Todos' },
             { value: 'sertanejo', viewValue: 'Sertanejo' },
             { value: 'pop', viewValue: 'Pop' },
             { value: 'rock', viewValue: 'Rock' },

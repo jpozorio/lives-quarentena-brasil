@@ -14,6 +14,7 @@ interface Style {
 })
 export class ProductListComponent {
     styles: Style[] = [
+        {value: '', viewValue: 'Todos'},
         {value: 'sertanejo', viewValue: 'Sertanejo'},
         {value: 'pop', viewValue: 'Pop'},
         {value: 'rock', viewValue: 'Rock'},

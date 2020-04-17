@@ -494,6 +494,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, ProductListComponent);
 
         this.styles = [{
+          value: '',
+          viewValue: 'Todos'
+        }, {
           value: 'sertanejo',
           viewValue: 'Sertanejo'
         }, {
