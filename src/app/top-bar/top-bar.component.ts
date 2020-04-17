@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatSelectModule} from '@angular/material/select';
 
 interface Style {
   value: string;
