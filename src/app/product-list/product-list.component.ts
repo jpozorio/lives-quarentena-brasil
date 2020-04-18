@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import * as data_json from '../products.json';
+import * as data_json from '../../products.json';
 
 interface Style {
     value: string;

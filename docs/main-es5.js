@@ -365,9 +365,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _products__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ../products */
-    "./src/app/products.ts");
+    var _products_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../../products.json */
+    "./src/products.json");
+
+    var _products_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(
+    /*! ../../products.json */
+    "./src/products.json", 1);
     /* harmony import */
 
 
@@ -461,7 +465,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"](" ", product_r3.name, " - ", product_r3.time, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate3"](" ", product_r3.name, " - ", product_r3.time, " ", product_r3.iniciado ? " [Em andamento]" : "", " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -473,7 +477,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductListComponent_div_5_div_1_Template, 6, 5, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductListComponent_div_5_div_1_Template, 6, 6, "div", 4);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -510,15 +514,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           viewValue: 'Gospel'
         }];
         this.selected = '';
-        this.products = _products__WEBPACK_IMPORTED_MODULE_1__["products"].filter(function (p) {
-          return p.date >= new Date();
-        });
       }
 
       _createClass(ProductListComponent, [{
-        key: "share",
-        value: function share() {
-          window.alert('The product has been shared!');
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var employee = _products_json__WEBPACK_IMPORTED_MODULE_1__;
+          var agora = new Date();
+          this.products = employee.filter(function (p) {
+            var date = new Date(p.date);
+            date.setHours(date.getHours() + 3);
+            return date >= agora;
+          });
+          this.products.forEach(function (p) {
+            var date = new Date(p.date);
+            p.iniciado = agora > date;
+
+            if (date.getMinutes() == 0) {
+              p.time = date.getHours() + "h";
+            } else {
+              p.time = date.getHours() + ":" + date.getMinutes() + "h";
+            }
+          });
         }
       }]);
 
@@ -591,120 +608,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     })();
     /***/
 
-  },
-
-  /***/
-  "./src/app/products.ts":
-  /*!*****************************!*\
-    !*** ./src/app/products.ts ***!
-    \*****************************/
-
-  /*! exports provided: products */
-
-  /***/
-  function srcAppProductsTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "products", function () {
-      return products;
-    });
-
-    var products = [{
-      name: 'Festival WorkShow Live',
-      time: '19h',
-      date: new Date(2020, 4, 17, 21, 0, 0, 0),
-      description: 'Marília Mendonça, Léo Santana, Maiara e Maraísa, João Neto e Frederico, Dilsinho, Paulo e Nathan, Diego e Victor Hugo, Luísa e Maurílio',
-      link: 'https://www.youtube.com/watch?v=M-dYwjU86BM',
-      estilo: 'sertanejo'
-    }, {
-      name: 'Attooxxa',
-      time: '19h',
-      date: new Date(2020, 4, 17, 21, 0, 0, 0),
-      description: 'Sala da Casa Natura Musical',
-      link: 'https://www.instagram.com/casanaturamusical/?hl=pt-br',
-      estilo: 'pop'
-    }, {
-      name: 'Emicida e Ana Tijoux',
-      time: '19h',
-      date: new Date(2020, 4, 17, 21, 0, 0, 0),
-      description: 'Festival Mucho',
-      link: 'https://www.youtube.com/channel/UCDYMH09F7vwfLt7Ma5PIMwA',
-      estilo: 'pop'
-    }, {
-      name: 'Bhaskar',
-      time: '19h',
-      date: new Date(2020, 4, 17, 21, 0, 0, 0),
-      description: 'Festival Mucho',
-      link: 'https://www.instagram.com/thecloud.bar/',
-      estilo: 'pop'
-    }, {
-      name: 'Festival Music Lives',
-      time: '20h',
-      date: new Date(2020, 4, 17, 22, 0, 0, 0),
-      description: 'Anitta vai se apresentar no domingo festival que dura 48 horas, começa nesta sexta e terá J Balvin, Swae Lee, Nas, Trippie Redd e outros',
-      link: 'https://www.livexlive.com/live-events/festival/music-lives',
-      estilo: 'pop'
-    }, {
-      name: 'Fresno',
-      time: '20h',
-      date: new Date(2020, 4, 17, 22, 0, 0, 0),
-      description: 'Anitta vai se apresentar no domingo festival que dura 48 horas, começa nesta sexta e terá J Balvin, Swae Lee, Nas, Trippie Redd e outros',
-      link: 'https://www.youtube.com/user/fresnorock',
-      estilo: 'pop'
-    }, {
-      name: 'Dennis DJ',
-      time: '20h',
-      date: new Date(2020, 4, 17, 22, 0, 0, 0),
-      description: 'Dennis DJ',
-      link: 'http://www.instagram.com/multishow',
-      estilo: 'sertanejo'
-    }, {
-      name: 'Tato, do Falamansa',
-      time: '21h',
-      date: new Date(2020, 4, 17, 23, 0, 0, 0),
-      description: 'Festival Áudio',
-      link: 'https://www.instagram.com/audio/?hl=pt-br',
-      estilo: 'sertanejo'
-    }, {
-      name: 'Leila Pinheiro',
-      time: '21h',
-      date: new Date(2020, 4, 17, 23, 0, 0, 0),
-      description: 'Festival Ziriguidum',
-      link: 'https://www.instagram.com/leilapinheiro/',
-      estilo: 'pop'
-    }, {
-      name: 'Rennan da Penha',
-      time: '21h',
-      date: new Date(2020, 4, 17, 23, 0, 0, 0),
-      description: 'Rennan da Penha',
-      link: 'https://www.youtube.com/channel/UCks-X9gDvMsU3hqWc0F4I1g',
-      estilo: 'pop'
-    }, {
-      name: '3030',
-      time: '23h',
-      date: new Date(2020, 4, 18, 1, 0, 0, 0),
-      description: '3030',
-      link: 'https://www.instagram.com/radiofmodia/?hl=pt-br',
-      estilo: 'pop'
-    }, {
-      name: 'Diplo',
-      time: '0h',
-      date: new Date(2020, 4, 18, 2, 59, 0, 0),
-      description: 'Diplo',
-      link: 'https://www.instagram.com/diplo/?hl=pt-br',
-      estilo: 'pop'
-    }];
-    /*
-    Copyright Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license
-    */
-
-    /***/
   },
 
   /***/
@@ -889,6 +792,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     });
     /***/
 
+  },
+
+  /***/
+  "./src/products.json":
+  /*!***************************!*\
+    !*** ./src/products.json ***!
+    \***************************/
+
+  /*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, default */
+
+  /***/
+  function srcProductsJson(module) {
+    module.exports = JSON.parse("[{\"name\":\"Festival WorkShow Live\",\"date\":\"2020-04-17 19:00\",\"description\":\"Marília Mendonça, Léo Santana, Maiara e Maraísa, João Neto e Frederico, Dilsinho, Paulo e Nathan, Diego e Victor Hugo, Luísa e Maurílio\",\"link\":\"https://www.youtube.com/watch?v=M-dYwjU86BM\",\"estilo\":\"sertanejo\"},{\"name\":\"Attooxxa\",\"date\":\"2020-04-17 19:00\",\"description\":\"Sala da Casa Natura Musical\",\"link\":\"https://www.instagram.com/casanaturamusical/?hl=pt-br\",\"estilo\":\"pop\"},{\"name\":\"Emicida e Ana Tijoux\",\"date\":\"2020-04-17 19:00\",\"description\":\"Festival Mucho\",\"link\":\"https://www.youtube.com/channel/UCDYMH09F7vwfLt7Ma5PIMwA\",\"estilo\":\"pop\"},{\"name\":\"Bhaskar\",\"date\":\"2020-04-17 19:00\",\"description\":\"Festival Mucho\",\"link\":\"https://www.instagram.com/thecloud.bar/\",\"estilo\":\"pop\"},{\"name\":\"Festival Music Lives\",\"date\":\"2020-04-17 20:00\",\"description\":\"Anitta vai se apresentar no domingo festival que dura 48 horas, começa nesta sexta e terá J Balvin, Swae Lee, Nas, Trippie Redd e outros\",\"link\":\"https://www.livexlive.com/live-events/festival/music-lives\",\"estilo\":\"pop\"},{\"name\":\"Fresno\",\"date\":\"2020-04-17 20:00\",\"description\":\"Anitta vai se apresentar no domingo festival que dura 48 horas, começa nesta sexta e terá J Balvin, Swae Lee, Nas, Trippie Redd e outros\",\"link\":\"https://www.youtube.com/user/fresnorock\",\"estilo\":\"pop\"},{\"name\":\"Dennis DJ\",\"date\":\"2020-04-17 20:00\",\"description\":\"Dennis DJ\",\"link\":\"http://www.instagram.com/multishow\",\"estilo\":\"sertanejo\"},{\"name\":\"Tato, do Falamansa\",\"date\":\"2020-04-17 21:00\",\"description\":\"Festival Áudio\",\"link\":\"https://www.instagram.com/audio/?hl=pt-br\",\"estilo\":\"sertanejo\"},{\"name\":\"Leila Pinheiro\",\"date\":\"2020-04-17 21:00\",\"description\":\"Festival Ziriguidum\",\"link\":\"https://www.instagram.com/leilapinheiro/\",\"estilo\":\"pop\"},{\"name\":\"Rennan da Penha\",\"date\":\"2020-04-17 21:00\",\"description\":\"Rennan da Penha\",\"link\":\"https://www.youtube.com/channel/UCks-X9gDvMsU3hqWc0F4I1g\",\"estilo\":\"pop\"},{\"name\":\"3030\",\"date\":\"2020-04-17 23:00\",\"description\":\"3030\",\"link\":\"https://www.instagram.com/radiofmodia/?hl=pt-br\",\"estilo\":\"pop\"},{\"name\":\"Diplo\",\"date\":\"2020-04-18 00:00\",\"description\":\"Diplo\",\"link\":\"https://www.instagram.com/diplo/?hl=pt-br\",\"estilo\":\"pop\"}]");
+    /***/
   },
 
   /***/
