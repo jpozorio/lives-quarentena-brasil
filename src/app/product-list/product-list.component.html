@@ -1,13 +1,15 @@
 <br/>
-<mat-form-field>
-    <mat-label>Estilo musical</mat-label>
-    <mat-select [(value)]="selected">
-        <mat-option *ngFor="let st of styles" [value]="st.value">
-            {{st.viewValue}}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
-
+<div>
+    <mat-form-field>
+        <mat-label>Estilo musical</mat-label>
+        <mat-select [(value)]="selected">
+            <mat-option *ngFor="let st of styles" [value]="st.value">
+                {{st.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+<!--    <mat-slide-toggle [checked]="apenasProximas">Apenas próximas</mat-slide-toggle>-->
+</div>
 <div *ngFor="let product of products">
     <div *ngIf="!selected || product.estilo == selected">
         <br/>
@@ -17,8 +19,10 @@
             </a>
         </h3>
 
+        <div>{{ transformDate(product.date) }}</div>
         <p *ngIf="product.description">
             {{ product.description }}
         </p>
+        <br/>
     </div>
 </div>

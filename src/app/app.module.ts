@@ -12,7 +12,9 @@ import {environment} from '../environments/environment';
 import {MatSelectModule} from "@angular/material/select";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
+import {DatePipe} from "@angular/common";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
     declarations: [
@@ -31,9 +33,11 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
         MatSelectModule,
         MatFormFieldModule,
         MatInputModule,
-        HttpClientModule
+        HttpClientModule,
+        MatSlideToggleModule,
     ],
     providers: [
+        DatePipe
     ],
     bootstrap: [AppComponent]
 })

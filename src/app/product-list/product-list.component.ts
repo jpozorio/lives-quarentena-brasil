@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from "rxjs";
+import {DatePipe} from "@angular/common";
 
 interface Style {
     value: string;
@@ -34,13 +35,17 @@ export class ProductListComponent {
 
     products;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private datePipe: DatePipe) {
         this.getJSON().subscribe(data => {
             let employee = data;
             let agora = new Date();
-            this.products = employee.filter(p => {
+            this.products = employee.sort((a, b) => {
+                return new Date(a.date).getTime() - new Date(b.date).getTime();
+            });
+
+            this.products = this.products.filter(p => {
                 let date = new Date(p.date);
-                date.setHours(date.getHours() + 3);
+                date.setHours(date.getHours() + 8);
                 return date >= agora;
             });
             this.products.forEach(p => {
@@ -57,6 +62,10 @@ export class ProductListComponent {
 
     public getJSON(): Observable<any> {
         return this.http.get('assets/lista-lives.json');
+    }
+
+    transformDate(date): string {
+        return this.datePipe.transform(new Date(date), 'dd/MM/yyyy HH:mm'); //whatever format you need.
     }
 
 }
