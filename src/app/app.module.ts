@@ -12,13 +12,14 @@ import {environment} from '../environments/environment';
 import {MatSelectModule} from "@angular/material/select";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TopBarComponent,
-    ProductListComponent
-  ],
+    declarations: [
+        AppComponent,
+        TopBarComponent,
+        ProductListComponent
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -30,9 +31,11 @@ import {MatInputModule} from "@angular/material/input";
         MatSelectModule,
         MatFormFieldModule,
         MatInputModule,
+        HttpClientModule
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

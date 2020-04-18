@@ -286,6 +286,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_material_input__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! @angular/material/input */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/input.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -305,13 +311,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         component: _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_5__["ProductListComponent"]
       }]), _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"], _angular_service_worker__WEBPACK_IMPORTED_MODULE_8__["ServiceWorkerModule"].register('ngsw-worker.js', {
         enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].production
-      }), _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_12__["MatInputModule"]]]
+      }), _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_12__["MatInputModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_4__["TopBarComponent"], _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_5__["ProductListComponent"]],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"], _angular_service_worker__WEBPACK_IMPORTED_MODULE_8__["ServiceWorkerModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_12__["MatInputModule"]]
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"], _angular_service_worker__WEBPACK_IMPORTED_MODULE_8__["ServiceWorkerModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_12__["MatInputModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"]]
       });
     })();
     /*@__PURE__*/
@@ -327,7 +333,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             component: _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_5__["ProductListComponent"]
           }]), _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"], _angular_service_worker__WEBPACK_IMPORTED_MODULE_8__["ServiceWorkerModule"].register('ngsw-worker.js', {
             enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].production
-          }), _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_12__["MatInputModule"]],
+          }), _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_12__["MatInputModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"]],
           providers: [],
           bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         }]
@@ -365,13 +371,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _products_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ../../products.json */
-    "./src/products.json");
-
-    var _products_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(
-    /*! ../../products.json */
-    "./src/products.json", 1);
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
@@ -397,7 +399,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/material/core */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/core.js");
 
-    function ProductListComponent_mat_option_4_Template(rf, ctx) {
+    function ProductListComponent_mat_option_5_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-option", 3);
 
@@ -417,7 +419,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    function ProductListComponent_div_5_div_1_p_5_Template(rf, ctx) {
+    function ProductListComponent_div_6_div_1_p_5_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
 
@@ -435,7 +437,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    function ProductListComponent_div_5_div_1_Template(rf, ctx) {
+    function ProductListComponent_div_6_div_1_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
@@ -451,7 +453,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, ProductListComponent_div_5_div_1_p_5_Template, 2, 1, "p", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, ProductListComponent_div_6_div_1_p_5_Template, 2, 1, "p", 4);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -473,11 +475,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    function ProductListComponent_div_5_Template(rf, ctx) {
+    function ProductListComponent_div_6_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductListComponent_div_5_div_1_Template, 6, 6, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductListComponent_div_6_div_1_Template, 6, 6, "div", 4);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -494,9 +496,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     var ProductListComponent = /*#__PURE__*/function () {
-      function ProductListComponent() {
+      function ProductListComponent(http) {
+        var _this = this;
+
         _classCallCheck(this, ProductListComponent);
 
+        this.http = http;
         this.styles = [{
           value: '',
           viewValue: 'Todos'
@@ -514,19 +519,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           viewValue: 'Gospel'
         }];
         this.selected = '';
-      }
-
-      _createClass(ProductListComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {
-          var employee = _products_json__WEBPACK_IMPORTED_MODULE_1__;
+        this.getJSON().subscribe(function (data) {
+          var employee = data;
           var agora = new Date();
-          this.products = employee.filter(function (p) {
+          _this.products = employee.filter(function (p) {
             var date = new Date(p.date);
             date.setHours(date.getHours() + 3);
             return date >= agora;
           });
-          this.products.forEach(function (p) {
+
+          _this.products.forEach(function (p) {
             var date = new Date(p.date);
             p.iniciado = agora > date;
 
@@ -536,6 +538,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               p.time = date.getHours() + ":" + date.getMinutes() + "h";
             }
           });
+        });
+      }
+
+      _createClass(ProductListComponent, [{
+        key: "getJSON",
+        value: function getJSON() {
+          return this.http.get('assets/lista-lives.json');
         }
       }]);
 
@@ -543,42 +552,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     ProductListComponent.ɵfac = function ProductListComponent_Factory(t) {
-      return new (t || ProductListComponent)();
+      return new (t || ProductListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
     };
 
     ProductListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: ProductListComponent,
       selectors: [["app-product-list"]],
-      decls: 6,
+      decls: 7,
       vars: 3,
       consts: [[3, "value", "valueChange"], [3, "value", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [3, "value"], [4, "ngIf"], [3, "title", "href"]],
       template: function ProductListComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-form-field");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "br");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-label");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-form-field");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Estilo musical");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Estilo musical");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "mat-select", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "mat-select", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("valueChange", function ProductListComponent_Template_mat_select_valueChange_3_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("valueChange", function ProductListComponent_Template_mat_select_valueChange_4_listener($event) {
             return ctx.selected = $event;
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, ProductListComponent_mat_option_4_Template, 2, 2, "mat-option", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, ProductListComponent_mat_option_5_Template, 2, 2, "mat-option", 1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, ProductListComponent_div_5_Template, 2, 1, "div", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, ProductListComponent_div_6_Template, 2, 1, "div", 2);
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", ctx.selected);
 
@@ -604,7 +615,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           templateUrl: './product-list.component.html',
           styleUrls: ['./product-list.component.css']
         }]
-      }], null, null);
+      }], function () {
+        return [{
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]
+        }];
+      }, null);
     })();
     /***/
 
@@ -792,20 +807,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     });
     /***/
 
-  },
-
-  /***/
-  "./src/products.json":
-  /*!***************************!*\
-    !*** ./src/products.json ***!
-    \***************************/
-
-  /*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, default */
-
-  /***/
-  function srcProductsJson(module) {
-    module.exports = JSON.parse("[{\"name\":\"Festival WorkShow Live\",\"date\":\"2020-04-17 19:00\",\"description\":\"Marília Mendonça, Léo Santana, Maiara e Maraísa, João Neto e Frederico, Dilsinho, Paulo e Nathan, Diego e Victor Hugo, Luísa e Maurílio\",\"link\":\"https://www.youtube.com/watch?v=M-dYwjU86BM\",\"estilo\":\"sertanejo\"},{\"name\":\"Attooxxa\",\"date\":\"2020-04-17 19:00\",\"description\":\"Sala da Casa Natura Musical\",\"link\":\"https://www.instagram.com/casanaturamusical/?hl=pt-br\",\"estilo\":\"pop\"},{\"name\":\"Emicida e Ana Tijoux\",\"date\":\"2020-04-17 19:00\",\"description\":\"Festival Mucho\",\"link\":\"https://www.youtube.com/channel/UCDYMH09F7vwfLt7Ma5PIMwA\",\"estilo\":\"pop\"},{\"name\":\"Bhaskar\",\"date\":\"2020-04-17 19:00\",\"description\":\"Festival Mucho\",\"link\":\"https://www.instagram.com/thecloud.bar/\",\"estilo\":\"pop\"},{\"name\":\"Festival Music Lives\",\"date\":\"2020-04-17 20:00\",\"description\":\"Anitta vai se apresentar no domingo festival que dura 48 horas, começa nesta sexta e terá J Balvin, Swae Lee, Nas, Trippie Redd e outros\",\"link\":\"https://www.livexlive.com/live-events/festival/music-lives\",\"estilo\":\"pop\"},{\"name\":\"Fresno\",\"date\":\"2020-04-17 20:00\",\"description\":\"Anitta vai se apresentar no domingo festival que dura 48 horas, começa nesta sexta e terá J Balvin, Swae Lee, Nas, Trippie Redd e outros\",\"link\":\"https://www.youtube.com/user/fresnorock\",\"estilo\":\"pop\"},{\"name\":\"Dennis DJ\",\"date\":\"2020-04-17 20:00\",\"description\":\"Dennis DJ\",\"link\":\"http://www.instagram.com/multishow\",\"estilo\":\"sertanejo\"},{\"name\":\"Tato, do Falamansa\",\"date\":\"2020-04-17 21:00\",\"description\":\"Festival Áudio\",\"link\":\"https://www.instagram.com/audio/?hl=pt-br\",\"estilo\":\"sertanejo\"},{\"name\":\"Leila Pinheiro\",\"date\":\"2020-04-17 21:00\",\"description\":\"Festival Ziriguidum\",\"link\":\"https://www.instagram.com/leilapinheiro/\",\"estilo\":\"pop\"},{\"name\":\"Rennan da Penha\",\"date\":\"2020-04-17 21:00\",\"description\":\"Rennan da Penha\",\"link\":\"https://www.youtube.com/channel/UCks-X9gDvMsU3hqWc0F4I1g\",\"estilo\":\"pop\"},{\"name\":\"3030\",\"date\":\"2020-04-17 23:00\",\"description\":\"3030\",\"link\":\"https://www.instagram.com/radiofmodia/?hl=pt-br\",\"estilo\":\"pop\"},{\"name\":\"Diplo\",\"date\":\"2020-04-18 00:00\",\"description\":\"Diplo\",\"link\":\"https://www.instagram.com/diplo/?hl=pt-br\",\"estilo\":\"pop\"}]");
-    /***/
   },
 
   /***/
