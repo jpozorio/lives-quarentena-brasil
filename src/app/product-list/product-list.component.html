@@ -12,7 +12,7 @@
         <br/>
         <h3>
             <a [title]="product.name + ' details'" [href]="product.link">
-                {{ product.name }} - {{ product.time }}
+                {{ product.name }} - {{ product.time }} {{product.iniciado ? ' [Em andamento]' : ''}}
             </a>
         </h3>
 
