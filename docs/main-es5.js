@@ -445,7 +445,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", product_r3.description, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", product_r3.artists, " ");
       }
     }
 
@@ -485,19 +485,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("title", product_r3.name + " details")("href", product_r3.link, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("title", product_r3.title + " details")("href", product_r3.youtube_channel ? product_r3.youtube_channel : product_r3.instagram, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate3"](" ", product_r3.name, " - ", product_r3.time, " ", product_r3.iniciado ? " [Em andamento]" : "", " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate3"](" ", product_r3.title, " - ", product_r3.time, " ", product_r3.iniciado ? " [Em andamento]" : "", " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r4.transformDate(product_r3.date));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r4.transformDate(product_r3.datetime));
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", product_r3.description);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", product_r3.artists);
       }
     }
 
@@ -517,7 +517,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r1.selected || product_r3.estilo == ctx_r1.selected);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r1.selected || product_r3.categories && product_r3.categories[0] && product_r3.categories[0].key == ctx_r1.selected);
       }
     }
 
@@ -533,33 +533,59 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           value: '',
           viewValue: 'Todos'
         }, {
-          value: 'sertanejo',
-          viewValue: 'Sertanejo'
+          value: 'axe',
+          viewValue: 'axe'
         }, {
-          value: 'pop',
-          viewValue: 'Pop'
+          value: 'dj',
+          viewValue: 'dj'
         }, {
-          value: 'rock',
-          viewValue: 'Rock'
+          value: 'forro',
+          viewValue: 'forro'
+        }, {
+          value: 'funk',
+          viewValue: 'funk'
         }, {
           value: 'gospel',
-          viewValue: 'Gospel'
+          viewValue: 'gospel'
+        }, {
+          value: 'mpb',
+          viewValue: 'mpb'
+        }, {
+          value: 'outros',
+          viewValue: 'outros'
+        }, {
+          value: 'pop',
+          viewValue: 'pop'
+        }, {
+          value: 'rap',
+          viewValue: 'rap'
+        }, {
+          value: 'reggae',
+          viewValue: 'reggae'
+        }, {
+          value: 'rock',
+          viewValue: 'rock'
+        }, {
+          value: 'samba-pagode',
+          viewValue: 'samba/pagode'
+        }, {
+          value: 'sertanejo',
+          viewValue: 'sertanejo'
         }];
         this.selected = '';
         this.getJSON().subscribe(function (data) {
           var employee = data;
           var agora = new Date();
           _this.products = employee.sort(function (a, b) {
-            return new Date(a.date).getTime() - new Date(b.date).getTime();
-          });
-          _this.products = _this.products.filter(function (p) {
-            var date = new Date(p.date);
-            date.setHours(date.getHours() + 8);
-            return date >= agora;
-          });
+            return a.order - b.order;
+          }); // this.products = this.products.filter(p => {
+          //     let date = new Date(p.date);
+          //     date.setHours(date.getHours() + 8);
+          //     return date >= agora;
+          // });
 
           _this.products.forEach(function (p) {
-            var date = new Date(p.date);
+            var date = new Date(p.datetime);
             p.iniciado = agora > date;
 
             if (date.getMinutes() == 0) {
@@ -574,7 +600,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ProductListComponent, [{
         key: "getJSON",
         value: function getJSON() {
-          return this.http.get('assets/lista-lives.json');
+          return this.http.get('https://api.lives.mus.br/lives');
         }
       }, {
         key: "transformDate",
@@ -595,7 +621,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selectors: [["app-product-list"]],
       decls: 8,
       vars: 3,
-      consts: [[3, "value", "valueChange"], [3, "value", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [3, "value"], [4, "ngIf"], [3, "title", "href"]],
+      consts: [[3, "value", "valueChange"], [3, "value", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [3, "value"], [4, "ngIf"], ["target", "_blank", 3, "title", "href"]],
       template: function ProductListComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "br");

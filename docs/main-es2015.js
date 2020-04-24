@@ -242,7 +242,7 @@ function ProductListComponent_div_7_div_1_p_7_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const product_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", product_r3.description, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", product_r3.artists, " ");
 } }
 function ProductListComponent_div_7_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
@@ -262,13 +262,13 @@ function ProductListComponent_div_7_div_1_Template(rf, ctx) { if (rf & 1) {
     const product_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
     const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("title", product_r3.name + " details")("href", product_r3.link, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("title", product_r3.title + " details")("href", product_r3.youtube_channel ? product_r3.youtube_channel : product_r3.instagram, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate3"](" ", product_r3.name, " - ", product_r3.time, " ", product_r3.iniciado ? " [Em andamento]" : "", " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate3"](" ", product_r3.title, " - ", product_r3.time, " ", product_r3.iniciado ? " [Em andamento]" : "", " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r4.transformDate(product_r3.date));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r4.transformDate(product_r3.datetime));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", product_r3.description);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", product_r3.artists);
 } }
 function ProductListComponent_div_7_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
@@ -278,7 +278,7 @@ function ProductListComponent_div_7_Template(rf, ctx) { if (rf & 1) {
     const product_r3 = ctx.$implicit;
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r1.selected || product_r3.estilo == ctx_r1.selected);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r1.selected || product_r3.categories && product_r3.categories[0] && product_r3.categories[0].key == ctx_r1.selected);
 } }
 class ProductListComponent {
     constructor(http, datePipe) {
@@ -286,25 +286,34 @@ class ProductListComponent {
         this.datePipe = datePipe;
         this.styles = [
             { value: '', viewValue: 'Todos' },
-            { value: 'sertanejo', viewValue: 'Sertanejo' },
-            { value: 'pop', viewValue: 'Pop' },
-            { value: 'rock', viewValue: 'Rock' },
-            { value: 'gospel', viewValue: 'Gospel' }
+            { value: 'axe', viewValue: 'axe' },
+            { value: 'dj', viewValue: 'dj' },
+            { value: 'forro', viewValue: 'forro' },
+            { value: 'funk', viewValue: 'funk' },
+            { value: 'gospel', viewValue: 'gospel' },
+            { value: 'mpb', viewValue: 'mpb' },
+            { value: 'outros', viewValue: 'outros' },
+            { value: 'pop', viewValue: 'pop' },
+            { value: 'rap', viewValue: 'rap' },
+            { value: 'reggae', viewValue: 'reggae' },
+            { value: 'rock', viewValue: 'rock' },
+            { value: 'samba-pagode', viewValue: 'samba/pagode' },
+            { value: 'sertanejo', viewValue: 'sertanejo' },
         ];
         this.selected = '';
         this.getJSON().subscribe(data => {
             let employee = data;
             let agora = new Date();
             this.products = employee.sort((a, b) => {
-                return new Date(a.date).getTime() - new Date(b.date).getTime();
+                return a.order - b.order;
             });
-            this.products = this.products.filter(p => {
-                let date = new Date(p.date);
-                date.setHours(date.getHours() + 8);
-                return date >= agora;
-            });
+            // this.products = this.products.filter(p => {
+            //     let date = new Date(p.date);
+            //     date.setHours(date.getHours() + 8);
+            //     return date >= agora;
+            // });
             this.products.forEach(p => {
-                let date = new Date(p.date);
+                let date = new Date(p.datetime);
                 p.iniciado = agora > date;
                 if (date.getMinutes() == 0) {
                     p.time = date.getHours() + "h";
@@ -316,14 +325,14 @@ class ProductListComponent {
         });
     }
     getJSON() {
-        return this.http.get('assets/lista-lives.json');
+        return this.http.get('https://api.lives.mus.br/lives');
     }
     transformDate(date) {
         return this.datePipe.transform(new Date(date), 'dd/MM/yyyy HH:mm'); //whatever format you need.
     }
 }
 ProductListComponent.ɵfac = function ProductListComponent_Factory(t) { return new (t || ProductListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"])); };
-ProductListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProductListComponent, selectors: [["app-product-list"]], decls: 8, vars: 3, consts: [[3, "value", "valueChange"], [3, "value", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [3, "value"], [4, "ngIf"], [3, "title", "href"]], template: function ProductListComponent_Template(rf, ctx) { if (rf & 1) {
+ProductListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProductListComponent, selectors: [["app-product-list"]], decls: 8, vars: 3, consts: [[3, "value", "valueChange"], [3, "value", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [3, "value"], [4, "ngIf"], ["target", "_blank", 3, "title", "href"]], template: function ProductListComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "br");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-form-field");
