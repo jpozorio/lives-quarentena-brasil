@@ -577,7 +577,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var employee = data;
           var agora = new Date();
           _this.products = employee.sort(function (a, b) {
-            return a.order - b.order;
+            return new Date(a.datetime).getTime() - new Date(b.datetime).getTime();
           }); // this.products = this.products.filter(p => {
           //     let date = new Date(p.date);
           //     date.setHours(date.getHours() + 8);

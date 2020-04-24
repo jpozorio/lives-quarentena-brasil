@@ -305,7 +305,7 @@ class ProductListComponent {
             let employee = data;
             let agora = new Date();
             this.products = employee.sort((a, b) => {
-                return a.order - b.order;
+                return new Date(a.datetime).getTime() - new Date(b.datetime).getTime();
             });
             // this.products = this.products.filter(p => {
             //     let date = new Date(p.date);
