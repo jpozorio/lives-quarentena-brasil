@@ -19,10 +19,13 @@
             </a>
         </h3>
 
-        <div>{{ transformDate(product.datetime) }}</div>
-        <p *ngIf="product.artists">
-            {{ product.artists }}
-        </p>
+        <div style="display: flex">
+            <img style="width: 40%; margin-right: 20px;" [src]="product.youtube_video ? 'https://img.youtube.com/vi/'+product.youtube_video+'/hqdefault.jpg' : product.banner">
+            <div>
+                <div>{{ transformDate(product.datetime) }}</div>
+                <div>{{ product.artists }}</div>
+            </div>
+        </div>
         <br/>
     </div>
 </div>
