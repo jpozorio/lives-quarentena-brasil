@@ -8,16 +8,6 @@ interface Style {
     viewValue: string;
 }
 
-interface Product {
-    name: string,
-    time: string,
-    date: string,
-    description: string,
-    link: string,
-    estilo: string,
-    iniciado: boolean,
-}
-
 @Component({
     selector: 'app-product-list',
     templateUrl: './product-list.component.html',
@@ -26,10 +16,19 @@ interface Product {
 export class ProductListComponent {
     styles: Style[] = [
         {value: '', viewValue: 'Todos'},
-        {value: 'sertanejo', viewValue: 'Sertanejo'},
-        {value: 'pop', viewValue: 'Pop'},
-        {value: 'rock', viewValue: 'Rock'},
-        {value: 'gospel', viewValue: 'Gospel'}
+        {value: 'axe', viewValue: 'axe'},
+        {value: 'dj', viewValue: 'dj'},
+        {value: 'forro', viewValue: 'forro'},
+        {value: 'funk', viewValue: 'funk'},
+        {value: 'gospel', viewValue: 'gospel'},
+        {value: 'mpb', viewValue: 'mpb'},
+        {value: 'outros', viewValue: 'outros'},
+        {value: 'pop', viewValue: 'pop'},
+        {value: 'rap', viewValue: 'rap'},
+        {value: 'reggae', viewValue: 'reggae'},
+        {value: 'rock', viewValue: 'rock'},
+        {value: 'samba-pagode', viewValue: 'samba/pagode'},
+        {value: 'sertanejo', viewValue:'sertanejo'},
     ];
     selected = '';
 
@@ -40,16 +39,16 @@ export class ProductListComponent {
             let employee = data;
             let agora = new Date();
             this.products = employee.sort((a, b) => {
-                return new Date(a.date).getTime() - new Date(b.date).getTime();
+                return a.order - b.order;
             });
 
-            this.products = this.products.filter(p => {
-                let date = new Date(p.date);
-                date.setHours(date.getHours() + 8);
-                return date >= agora;
-            });
+            // this.products = this.products.filter(p => {
+            //     let date = new Date(p.date);
+            //     date.setHours(date.getHours() + 8);
+            //     return date >= agora;
+            // });
             this.products.forEach(p => {
-                let date = new Date(p.date);
+                let date = new Date(p.datetime);
                 p.iniciado = agora > date;
                 if (date.getMinutes() == 0) {
                     p.time = date.getHours() + "h";
@@ -61,7 +60,7 @@ export class ProductListComponent {
     }
 
     public getJSON(): Observable<any> {
-        return this.http.get('assets/lista-lives.json');
+        return this.http.get('https://api.lives.mus.br/lives');
     }
 
     transformDate(date): string {

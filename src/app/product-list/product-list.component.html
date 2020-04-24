@@ -8,20 +8,20 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-<!--    <mat-slide-toggle [checked]="apenasProximas">Apenas próximas</mat-slide-toggle>-->
+    <!--    <mat-slide-toggle [checked]="apenasProximas">Apenas próximas</mat-slide-toggle>-->
 </div>
 <div *ngFor="let product of products">
-    <div *ngIf="!selected || product.estilo == selected">
+    <div *ngIf="!selected || (product.categories && product.categories[0] && product.categories[0].key == selected)">
         <br/>
         <h3>
-            <a [title]="product.name + ' details'" [href]="product.link">
-                {{ product.name }} - {{ product.time }} {{product.iniciado ? ' [Em andamento]' : ''}}
+            <a [title]="product.title + ' details'" [href]="product.youtube_channel ?product.youtube_channel: product.instagram" target="_blank">
+                {{ product.title }} - {{ product.time }} {{product.iniciado ? ' [Em andamento]' : ''}}
             </a>
         </h3>
 
-        <div>{{ transformDate(product.date) }}</div>
-        <p *ngIf="product.description">
-            {{ product.description }}
+        <div>{{ transformDate(product.datetime) }}</div>
+        <p *ngIf="product.artists">
+            {{ product.artists }}
         </p>
         <br/>
     </div>
