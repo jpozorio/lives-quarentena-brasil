@@ -1,0 +1,10 @@
+{
+	"/lives": {
+		"target": "https://api.lives.mus.br/",
+		"secure": true,
+		"changeOrigin": true,
+		"pathRewrite": {
+			"^/lives-quarentena-brasil/lives": "lives"
+		}
+	}
+}
