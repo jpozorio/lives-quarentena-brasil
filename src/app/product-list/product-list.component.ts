@@ -60,7 +60,7 @@ export class ProductListComponent {
     }
 
     public getJSON(): Observable<any> {
-        return this.http.get('https://api.lives.mus.br/lives');
+        return this.http.get('lives');
     }
 
     transformDate(date): string {

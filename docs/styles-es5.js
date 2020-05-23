@@ -387,11 +387,11 @@
   /***/
   function _(module, exports, __webpack_require__) {
     __webpack_require__(
-    /*! /home/jpozorio/Downloads/odpeknvxnlq.angular/node_modules/@angular/material/prebuilt-themes/purple-green.css */
+    /*! /home/jpozorio/lives-quarentena-brasil/node_modules/@angular/material/prebuilt-themes/purple-green.css */
     "./node_modules/@angular/material/prebuilt-themes/purple-green.css");
 
     module.exports = __webpack_require__(
-    /*! /home/jpozorio/Downloads/odpeknvxnlq.angular/src/styles.css */
+    /*! /home/jpozorio/lives-quarentena-brasil/src/styles.css */
     "./src/styles.css");
     /***/
   }
