@@ -325,7 +325,7 @@ class ProductListComponent {
         });
     }
     getJSON() {
-        return this.http.get('lives');
+        return this.http.get('/lives');
     }
     transformDate(date) {
         return this.datePipe.transform(new Date(date), 'dd/MM/yyyy HH:mm'); //whatever format you need.

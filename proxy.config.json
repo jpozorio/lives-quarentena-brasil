@@ -1,5 +1,5 @@
 {
-	"/lives-quarentena-brasil/lives": {
+	"/lives": {
 		"target": "https://api.lives.mus.br/",
 		"secure": true,
 		"changeOrigin": true,

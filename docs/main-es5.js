@@ -600,7 +600,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ProductListComponent, [{
         key: "getJSON",
         value: function getJSON() {
-          return this.http.get('lives');
+          return this.http.get('/lives');
         }
       }, {
         key: "transformDate",
